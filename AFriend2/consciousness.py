@@ -7,3 +7,8 @@ if not info:
     conlib.cant_understand()
     quit()
 var2name = conlib.vars(cmd, info['struct'])
+print(var2name)
+name2obj = conlib.objects(var2name, info)
+print(name2obj)
+objs = [name2obj[i] for i in name2obj.keys()]
+final_obj = conlib.act(info, objs)

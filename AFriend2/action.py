@@ -8,6 +8,6 @@ info = [
     {
     'name':'put', #name of the function, for finding the function by name
     'arguments':{'obj':'rect', 'position':'position'}, #arguments of the function, so the program know what kind of
-    'struct':'put @obj on @posiiton',
+    'struct':'put @obj on @position',
     }
 ]

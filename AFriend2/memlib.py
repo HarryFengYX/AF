@@ -13,7 +13,7 @@ class rect:
     def __init__(self, name, color):
         self.name = name
         self.color = color
-        self.position = concepts.position(0,0)
+        self.position = position(0,0)
         self.type = self.__class__.__name__
 
     def __repr__(self):

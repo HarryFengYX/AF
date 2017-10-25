@@ -28,11 +28,19 @@ def find_obj(name, the_type): #find 1 object regarding to the the name
     return False
 
 def objects(var2name, info): #find all objects, if unsuccessful, try analyze
-    name2obj = []
+    name2obj = {}
     for i in var2name.keys():
         name = var2name[i]
-        a = objects(name, info['arguments'][i]) #name and type of the object, returning the obj
-        name2obj.append({name:a})
-        if not a:
+        a = find_obj(name, info['arguments'][i]) #name and type of the object, returning the obj
+        if a:
+            name2obj[name] = a
+        else:
             import lang
-            lang.find_property(name)
+            new_obj = lang.find_property(name) #get the obj thing for later
+            name2obj[name] = new_obj
+    return name2obj
+
+def act(info, objs):
+    import action
+    myaction = getattr(action, info['name'])
+    return myaction(objs)
