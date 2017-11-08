@@ -30,9 +30,9 @@ class task:
         else:
             #print(self.time)
             month, day = self.time.split('.')
-            self.date = datetime.date(today.year, int(month), int(day))
+            self.date = datetime.date(int(today.year), int(month), int(day))
             if self.date<today:
-                self.date = datetime.date(today.year+1, month, day)
+                self.date = datetime.date(today.year+1, int(month), int(day))
             self.daysleft = (self.date - today).days
     def __repr__(self):
         return self.event
